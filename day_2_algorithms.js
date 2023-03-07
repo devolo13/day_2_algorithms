@@ -57,3 +57,44 @@ function generateCoinChange(cents) {
     'You will need ' + change[0] + ' quarters, ' + change[1] + ' dimes, ' + change[2] + ' nickels, and ' + change[3] + ' pennies.'
   )
 }
+
+// write a function that returns the fibonacci number for a given index
+function fibonacci(index){
+// decrementing var index to change to 0 index convention
+  index --;
+  var fib = [1,1];
+  while (typeof fib[index]==="undefined"){
+    fib[fib.length]=fib[fib.length-2]+fib[fib.length-1];
+  }
+  return fib[index];
+}
+
+// rewrite the sigma function recursively
+function recursiveSigma(num){
+  if (num>1){
+    return num+recursiveSigma(num-1);
+  }
+  if (num===1){
+    return 1;
+  }
+}
+
+// rewrite the factorial function recursively
+function recursiveFactorial(num){
+  if (num>1){
+    return recursiveFactorial(num-1)*num;
+  }
+  if (num===1){
+    return 1;
+  }
+}
+
+// rewrite the fibonacci function recursively
+function recursiveFibonacci(index){
+  if (index>0 && index <3){
+    return 1;
+  }
+  if (index > 2){
+    return recursiveFibonacci(index-2)+recursiveFibonacci(index-1);
+  }
+}
