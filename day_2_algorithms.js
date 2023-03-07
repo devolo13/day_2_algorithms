@@ -96,3 +96,90 @@ function recursiveFibonacci(index) {
     return recursiveFibonacci(index - 2) + recursiveFibonacci(index - 1);
   }
 }
+
+// write an iterative function that determines if the given number is in an array
+function binarySearch(arr, num) {
+  while (arr.length > 0) {
+    if (arr[Math.round((arr.length - 1) / 2)] === num) {
+      return true;
+    } else if (arr[Math.round((arr.length - 1) / 2)] > num) {
+      arr.splice(Math.round(arr.length - 1) / 2);
+    } else if (arr[Math.round((arr.length - 1) / 2)] < num) {
+      arr.splice(0, Math.round(arr.length / 2));
+    }
+  }
+  return false;
+}
+
+// rewrite the binary search function recursively
+function recursiveBinarySearch(arr, num) {
+  if (arr.length === 0) {
+    return false;
+  }
+  if (arr[Math.round((arr.length - 1) / 2)] === num) {
+    return true;
+  } else if (arr[Math.round((arr.length - 1) / 2)] > num) {
+    arr.splice(Math.round(arr.length - 1) / 2);
+  } else if (arr[Math.round((arr.length - 1) / 2)] < num) {
+    arr.splice(0, Math.round(arr.length / 2));
+  }
+  return recursiveBinarySearch(arr, num);
+}
+
+// write a function that returns the average value of an array
+function avg(arr) {
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
+}
+
+// write a function that determines if an array has a point between indices where the sums are the same on both sides
+function balancePoint(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    var sum1 = 0;
+    var sum2 = 0;
+    // setting the left side sum
+    for (var j = i; j > 0; j--) {
+      sum1 += arr[j - 1];
+    }
+    // setting right side sum
+    for (var j = i; j < arr.length; j++) {
+      sum2 += arr[j];
+    }
+    if (sum1 === sum2) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// write a function that finds a balance point on an index and returns that index or -1 if no index exists
+function balanceIndex(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    var sum1 = 0;
+    var sum2 = 0;
+    for (var j = i; j > 0; j--) {
+      sum1 += arr[j - 1];
+    }
+    for (var j = i; j < arr.length - 1; j++) {
+      sum2 += arr[j + 1];
+    }
+    if (sum1 == sum2) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+// given an array of [x,y] coordinates, minimize the total distance between you and your customers
+function tacoTruck(arr) {
+  var xsum = 0;
+  var ysum = 0;
+  for (var i = arr.length - 1; i > 0; i -= 2) {
+    xsum += arr[i - 1];
+    ysum += arr[i];
+  }
+  return [xsum / (arr.length / 2), ysum / (arr.length / 2)];
+}
