@@ -53,6 +53,7 @@ function generateCoinChange(cents) {
     change[3] += 1;
     cents -= 1;
   }
+  // prettier-ignore
   console.log('You will need ' + change[0] + ' quarters, ' + change[1] + ' dimes, ' + change[2] + ' nickels, and ' + change[3] + ' pennies.');
 }
 
@@ -175,11 +176,11 @@ function balanceIndex(arr) {
 
 // given an array of [x,y] coordinates, minimize the total distance between you and your customers
 function tacoTruck(arr) {
-  var xsum = 0;
-  var ysum = 0;
+  var xSum = 0;
+  var ySum = 0;
   for (var i = arr.length - 1; i > 0; i -= 2) {
-    xsum += arr[i - 1];
-    ysum += arr[i];
+    xSum += arr[i - 1];
+    ySum += arr[i];
   }
-  return [xsum / (arr.length / 2), ysum / (arr.length / 2)];
+  return [xSum / (arr.length / 2), ySum / (arr.length / 2)];
 }
